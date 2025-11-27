@@ -1,0 +1,17 @@
+{
+    "name": "oscar/composer-ejercicio1",
+    "description": "Ejercicio1",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "oscar",
+            "email": "oscar@educantabria.es"
+        }
+    ],
+    "require": {}
+}

@@ -1,0 +1,22 @@
+{
+    "name": "usuario/ejercicio-password",
+    "description": "Ejercicio generador de contrase\u0000as\"",
+    "type": "project",
+  
+    "authors": [
+        {
+            "name": "jinooli2024",
+            "email": "ventas@sabira.pe"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+
+    "minimum-stability": "stable",
+    "require": {
+        "hackzilla/password-generator": "1.4"
+    }
+}
