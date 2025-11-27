@@ -1,0 +1,18 @@
+body {
+    background: #e5e5e5;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: auto;
+}
+
+.vista {
+    display: flex;
+    gap: 10px;
+}
+
+.jugadores {
+
+}
+
+.equipos {
+
+}
