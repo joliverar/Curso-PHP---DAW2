@@ -17,7 +17,7 @@ class GeneradorPassword
         $generator->setSymbols($simbolos);
     
         
-        return $generator->generatePassword();
+        return $generator-> generatePassword();
     }
 }
 

@@ -1,0 +1,20 @@
+{
+    "name": "usuario/envio-form",
+    "description": "Envio de formularios",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jinooli2024",
+            "email": "ventas@sabira.pe"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "phpmailer/phpmailer": "^7.0"
+    }
+}

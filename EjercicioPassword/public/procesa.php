@@ -4,7 +4,7 @@ require_once "../vendor/autoload.php";
 
 use App\Clases\AdaptadorGeneradorPassword;
 
-$longitud = $_POST['longitud'];
+$longitud = intval($_POST['longitud']);
 $mayus = isset($_POST['mayus']);
 $minus = isset($_POST['minus']);
 $nums = isset($_POST['nums']);
@@ -18,3 +18,4 @@ $password = $generador->generar(
 
 echo "<h1>Contraseña generada:</h1>";
 echo "<h2>$password</h2>";
+?>
