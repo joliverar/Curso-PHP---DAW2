@@ -17,8 +17,8 @@
     ?>
 
   
-    <div class="vista">
-        <div class="equipos">
+    <div class="contenedor">
+      
               <h1>Equipos de la NBA</h1>
             <ul>
                 <?php foreach ($equipos as $equipo): ?>
@@ -26,7 +26,7 @@
                 <?php endforeach; ?>
             </ul>
             <hr>
-        </div>
+        
         <div class="jugadores">
             <h1>Jugadores de la NBA</h1>
             <ul>

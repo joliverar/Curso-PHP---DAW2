@@ -14,9 +14,21 @@ function getEquipos()
 
 function getJugadores(){
     $pdo = getConexion();
-    $sql = "select nombre, procedencia, altura from jugadores";
+    $sql = "select nombre from jugadores";
     $stmt = $pdo->query($sql);
     return $stmt -> fetchAll(PDO::FETCH_COLUMN);
+}
+function getJugadoresPorEquipo($equipo)
+{
+    $pdo = getConexion();
+    $sql = "SELECT nombre, peso 
+            FROM jugadores 
+            WHERE nombre_equipo = :equipo";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([":equipo" => $equipo]);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function probarFetchModes()
