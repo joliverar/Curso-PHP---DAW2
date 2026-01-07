@@ -1,46 +1,48 @@
 <?php
-declare(strict_types=1); // Fuerza tipos estrictos en este archivo
+declare(strict_types=1);
 
-require_once __DIR__ . '/../vendor/autoload.php'; // Carga el autoloader generado por Composer (vendor/autoload.php)
+require_once __DIR__ .'\..\vendor\autoload.php';
 
-use App\Clases\AdaptadorGeneradorPassword; // Importa la clase AdaptadorGeneradorPassword del namespace App\Clases
+use App\Clases\AdaptadorGeneradorPassword;
 
-function h(string $s): string { return htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); } // Helper para escapar salida HTML
+function h(string $s): string{
+    return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
 
-// Si la petición NO es POST o no viene el botón 'generar', redirige al formulario
-if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['generar'])) {
-    header('Location: index.php'); // Envía cabecera Location para redirigir al index (comportamiento PRG simple)
-    exit; // Termina la ejecución tras la redirección
 }
 
-// Recoge y valida la longitud solicitada (por defecto 12, y la limita entre 4 y 128)
-$length = (int) ($_POST['length'] ?? 12); // Convierte a entero y usa 12 si no viene
-$length = max(4, min(128, $length)); // Asegura que queda en el rango permitido
+if($_SERVER('$REQUEST_METHOD')!=='POST' || !isset($_POST['generar'])){
+    header('Location: index.php');
+    exit;
+}
 
-// Construye el array de opciones leyendo los checkbox del formulario
+$length = (int)($_POST['length']?? 12);
+$length = max(4, min(128, $length));
+
 $options = [
-    'length'  => $length,
-    'upper'   => isset($_POST['upper']),   // true si se pidió mayúsculas
-    'lower'   => isset($_POST['lower']),   // true si se pidió minúsculas
-    'numbers' => isset($_POST['numbers']), // true si se pidió números
-    'symbols' => isset($_POST['symbols']), // true si se pidió símbolos
+    'length' => $length,
+    'upper' => isset($_POST['upper']),
+    'lower' => isset($_POST['lower']),
+    'number' => isset($_POST['number']),
+    'symbols' => isset($_POST['symbols'])
 ];
 
-// Crea el adaptador que implementa la interfaz del generador de contraseñas
 $adaptador = new AdaptadorGeneradorPassword();
-
-// Genera la contraseña usando las opciones proporcionadas
 $password = $adaptador->generar($options);
+
+
+
 ?>
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Contraseña generada</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-    <a href="index.php">&larr; Volver</a> <!-- Enlace para volver al formulario -->
-    <h1>Contraseña generada</h1>
-    <p><strong><?= h($password) ?></strong></p> <!-- Muestra la contraseña escapada -->
+    <h2>Pasword Generado</h2>
+    <p><?= h($password) ?></p>
+    <p><a href="./index.php"> volver</a></p>
+
 </body>
 </html>
