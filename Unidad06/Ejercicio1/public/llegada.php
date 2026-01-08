@@ -29,7 +29,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="utf-8">
     <title>Llegada - Funicular Bulnes</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="estilo.css">
+    <style>
+        /* Estilos básicos */
+        :root{
+            --bg:#f5f7fa;
+            --card:#ffffff;
+            --primary:#2b7cff;
+            --muted:#555;
+            --radius:8px;
+        }
+        *{box-sizing:border-box}
+        body{
+            margin:0;
+            font-family: Arial, Helvetica, sans-serif;
+            background:var(--bg);
+            color:#222;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            min-height:100vh;
+            padding:20px;
+        }
+        .card{
+            width:100%;
+            max-width:680px;
+            background:var(--card);
+            border-radius:var(--radius);
+            box-shadow:0 6px 18px rgba(0,0,0,0.06);
+            padding:20px;
+        }
+        h1{margin:0 0 8px;font-size:20px}
+        p.lead{margin:0 0 16px;color:var(--muted)}
+        .msg{
+            padding:12px;
+            border-radius:6px;
+            margin-bottom:14px;
+        }
+        .msg.success{background:#e9f7ef;border:1px solid #c7eed4;color:#124825}
+        .msg.error{background:#fff0f0;border:1px solid #f2c2c2;color:#7a1b1b}
+        form{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+        button{
+            background:var(--primary);
+            color:#fff;
+            border:0;
+            padding:10px 16px;
+            border-radius:6px;
+            cursor:pointer;
+            font-weight:600;
+        }
+        a.link{color:var(--muted);text-decoration:none;font-size:14px}
+        .meta{margin-top:12px;color:var(--muted);font-size:13px}
+        @media (max-width:520px){
+            .card{padding:14px}
+            form{flex-direction:column;align-items:stretch}
+            button{width:100%}
+        }
+    </style>
 </head>
 <body>
     <main class="card" role="main" aria-labelledby="title">
