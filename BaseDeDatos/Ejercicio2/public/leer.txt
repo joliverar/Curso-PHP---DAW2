@@ -1,0 +1,18 @@
+En PHP cada vez que entras en un archivo nuevo por 
+una petición HTTP (como un POST del formulario), 
+el estado anterior no se mantiene; 
+tienes que volver a cargar el entorno.
+
+Dado que en el ejercicio tenemos tres archivos que cargamos como index, libros_datos y libros_guardar
+tendremos que cargar .env en los 3 archivos.
+
+Para tener código eficiente creamos bootstrap.php y hacemos requiere_once en los tres archivos
+
+Composer sólo autoloadea clases, interfaces y traits 
+según su namespace/path. 
+
+Un archivo que define funciones (aunque estén namespaced)
+no se carga automáticamente al incluir vendor/autoload.php; 
+las funciones no disparan el autoload.
+
+Por ese motivo hay que hacer el require_once de funcionesBD

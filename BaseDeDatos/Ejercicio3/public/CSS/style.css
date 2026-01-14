@@ -1,0 +1,31 @@
+:root{
+    --bg:#f4f6f8;
+    --card:#ffffff;
+    --accent:#2b7cff;
+    --text:#222;
+    --muted:#666;
+    --radius:8px;
+}
+
+*{ box-sizing:border-box }
+
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.wrap{
+    max-width:860px;
+    width:100%;
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:20px;
+    box-shadow:0 6px 18px rgba(0,0,0,.06);
+}

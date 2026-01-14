@@ -1,0 +1,19 @@
+{
+    "name": "usuario/ejercicio-email",
+    "description": "simulacion exmen",
+    "type": "project",
+
+    "autoload": {
+        "psr-4": {
+            "App\\":"App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jinooli2024",
+            "email": "ventas@sabira.pe"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

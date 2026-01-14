@@ -1,0 +1,22 @@
+{
+    "name": "oscar/composer-ejercicio2",
+    "description": "Ejercicio 2",
+    "type": "project",
+    
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "oscar",
+            "email": "oscar@correo.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "phpmailer/phpmailer": "^7.0"
+    }
+}
