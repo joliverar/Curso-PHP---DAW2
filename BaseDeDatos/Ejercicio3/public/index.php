@@ -3,9 +3,22 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 use Dotenv\Dotenv;
+use App\Clases\ConexionBD;
 
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
+
+$conexionOK = false;
+$errorBD = '';
+
+try {
+    $pdo = ConexionBD::getConexion();
+    $stmt = $pdo->query('SELECT 1');
+    $conexionOK = true;
+} catch (Throwable $e) {
+    $errorBD = $e->getMessage();
+}
+?>
 ?>
 <!doctype html>
 <html lang="es">
@@ -23,7 +36,14 @@ $dotenv->load();
             <div>
                 <h1 id="title">Funicular Bulnes</h1>
                 <p class="lead">Reservas, llegada y gestión de plazas.</p>
+                <?php if ($conexionOK): ?>
+                    <p style="color:green">✔ Conexión a la base de datos correcta</p>
+                <?php else: ?>
+                    <p style="color:red">✖ Error de conexión: <?= htmlspecialchars($errorBD) ?></p>
+                <?php endif; ?>
+
             </div>
+
         </header>
 
         <nav class="menu" aria-label="Menú principal">
