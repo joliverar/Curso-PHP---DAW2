@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0
+        }
+
+        body {
+            font-size: 20px;
+        }
+
+        .header {
+
+            margin: auto;
+            text-align: center;
+            padding: 20px;
+            width: 40%;
+            font-weight: bold;
+
+        }
+
+        .main img {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+
+        }
+
+        @media print {
+            .header {
+                color: red;
+                text-align: justify;
+                float: left;
+            }
+
+            .main img {
+                width: 20%;
+                margin: 20px;
+
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .header {
+                color: blue;
+
+
+            }
+        }
+    </style>
+    <title>Actividad 1</title>
+</head>
+<!-- 1.
+Escribe un fichero HTML con cabecera y cuerpo que incluya un párrafo y una imagen.
+Crea la hoja o hojas de estilo que creas oportunas para cumplir con esta visualización:
+•
+Los párrafos tienen que aparecer en negrita, alineado en el centro y con tamaño de 20 px en todos los dispositivos.
+•
+Las imágenes sólo deben aparecer centradas cuando se muestren por pantalla.
+•
+Al imprimir la página el texto debe aparecer en rojo y las imágenes con un ancho del 20%.
+•
+Investigar cómo hacer que muestre el texto en azul si el dispositivo de visualización tiene menos de 480px de ancho. -->
+<body>
+    <header class="header">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus fugit explicabo sequi autem
+        cumque illum nobis totam. Alias in porro, repellendus earum autem adipisci error hic consequatur, molestias eius
+        ullam. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi eligendi deserunt facere cum ratione quos
+        quam nihil. Veniam, tempora earum? Exercitationem perspiciatis, distinctio ad commodi eaque atque quidem
+        inventore excepturi?</header>
+    <main class="main"><img src="img/images.jpg"></main>
+</body>
+
+</html>
