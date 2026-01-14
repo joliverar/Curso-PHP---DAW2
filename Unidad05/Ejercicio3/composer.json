@@ -1,0 +1,21 @@
+{
+    "name": "oscar/ejercicio3",
+    "description": "Funicular",
+    "type": "proyect",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "oscar",
+            "email": "oscar@correo.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

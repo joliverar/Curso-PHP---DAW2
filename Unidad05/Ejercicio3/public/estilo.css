@@ -1,0 +1,196 @@
+/* =====================================================
+   ESTILO GENERAL – DWES
+   Archivo único de estilos para toda la aplicación
+   ===================================================== */
+
+/* -------- RESET BÁSICO -------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -------- CONTENEDORES -------- */
+.main {
+    width: 100%;
+    padding: 20px;
+}
+
+.section,
+.card {
+    background: #ffffff;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* -------- TITULOS -------- */
+h1, h2 {
+    margin-bottom: 15px;
+    color: #1f2937;
+}
+
+/* -------- TEXTO -------- */
+p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.note {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+/* -------- MENSAJES -------- */
+.success {
+    background: #e6f4ea;
+    color: #14532d;
+    border: 1px solid #a7f3d0;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.error {
+    background: #fde8e8;
+    color: #7f1d1d;
+    border: 1px solid #fecaca;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+/* -------- FORMULARIOS -------- */
+form {
+    display: grid;
+    gap: 12px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+/* -------- BOTONES -------- */
+button {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+/* -------- ENLACES -------- */
+a {
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* -------- TABLAS -------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+th {
+    background: #f9fafb;
+    color: #374151;
+}
+
+/* -------- HEADER (FUNI / RESERVA) -------- */
+header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    background: #2563eb;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* -------- UTILIDADES -------- */
+.full {
+    grid-column: 1 / -1;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 640px) {
+    body {
+        align-items: flex-start;
+    }
+
+    .section,
+    .card {
+        padding: 15px;
+    }
+
+    .actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+

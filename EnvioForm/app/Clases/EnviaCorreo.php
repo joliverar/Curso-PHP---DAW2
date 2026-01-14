@@ -18,7 +18,7 @@ class EnviaCorreo implements InterfazCorreo
             $mail->SMTPAuth = true;
             $mail->Username = 'a4280778d0e3e1';
             $mail->Password = 'c8703cdeafdd12';
-            $mail->Port = 2525;
+            $mail->Port = 587;
 
             // QUIÉN ENVÍA
             $mail->setFrom($datos['email'], $datos['nombre']);
