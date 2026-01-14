@@ -1,17 +1,37 @@
 <?php
+// Activa el modo estricto de tipos en PHP.
+// Evita conversiones automáticas peligrosas y mejora la calidad del código.
 declare(strict_types=1);
 
+// Carga el autoload de Composer.
+// Permite usar clases propias y librerías externas sin hacer require manuales.
 require_once __DIR__ . '/../vendor/autoload.php';
-use Dotenv\Dotenv;
-use App\Clases\ConexionBD;
 
+// Importamos las clases que vamos a utilizar
+use Dotenv\Dotenv;              // Clase para cargar variables de entorno desde .env
+use App\Clases\ConexionBD;      // Clase que gestiona la conexión a la base de datos
+
+// Creamos una instancia de Dotenv indicando la ruta donde se encuentra el archivo .env
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+
+// Cargamos las variables del archivo .env en la superglobal $_ENV
 $dotenv->load();
 
+// Obtenemos la conexión a la base de datos mediante la clase ConexionBD
+// Se usa PDO y el patrón Singleton para reutilizar la conexión
 $pdo = ConexionBD::getConexion();
-$stmt = $pdo->query('SELECT numero, precio FROM plazas WHERE reservada = 0 ORDER BY numero');
+
+// Ejecutamos una consulta SQL para obtener las plazas que no están reservadas
+// Solo se seleccionan el número de plaza y su precio
+$stmt = $pdo->query(
+    'SELECT numero, precio FROM plazas WHERE reservada = 0 ORDER BY numero'
+);
+
+// Recuperamos todos los resultados de la consulta en un array asociativo
+// Cada elemento del array representa una plaza libre
 $plazas = $stmt->fetchAll();
 ?>
+
 <!doctype html>
 <html lang="es">
 <head>

@@ -1,0 +1,37 @@
+ /* estilo genera*/
+ 
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+ body {
+     font-size: 12px;
+     width: 40%;
+     margin: auto;
+ }
+
+ .cabecera {
+     font-size: 30px;
+     padding: 5px;
+     border: 1px solid blue;
+     margin: 20px 0;
+     text-align: left;
+ }
+
+ .cuerpo {
+     width: 80%;
+     padding: 25px 25px 40px 25px;
+     border: 1px dotted rgb(255, 145, 0);
+     color: green;
+     float: right;
+     text-align: left;
+ }
+
+ 
+
+ /* Limpieza del float */
+ .clear {
+     clear: both;
+ }

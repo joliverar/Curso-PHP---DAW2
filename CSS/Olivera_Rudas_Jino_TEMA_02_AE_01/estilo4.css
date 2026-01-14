@@ -1,0 +1,32 @@
+/* se crea un selector unico asimimo se le da estilos las etiquetas em y a*/
+
+* {
+    box-sizing: border-box;
+    border: 1px solid rgb(4, 133, 32);
+    padding: 10px;
+    margin-top: 10px;
+}
+
+body {
+    margin: auto;
+    color: rgb(48, 23, 23);
+    letter-spacing: 5px;
+    width: 40%;
+}
+
+
+em {
+    font-weight: bold;
+    color: rgb(7, 110, 15);
+    background-color: #e8f2ff;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+
+a {
+    text-decoration: underline;
+    color: rgb(0, 116, 0);
+    border: none;
+
+}
