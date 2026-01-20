@@ -10,7 +10,10 @@ $dotenv->load();
 
 $conexionOK = false;
 $errorBD = '';
+$pdo = ConexionBD::getConexion();
 
+$stmt = $pdo->query('SELECT COUNT(*) FROM plazas');
+$total = $stmt->fetchColumn();
 try {
     $pdo = ConexionBD::getConexion();
     $stmt = $pdo->query('SELECT 1');
@@ -36,6 +39,8 @@ try {
             <div>
                 <h1 id="title">Funicular Bulnes</h1>
                 <p class="lead">Reservas, llegada y gestión de plazas.</p>
+                <p>Total de plazas en BD: <?= $total ?></p>
+
                 <?php if ($conexionOK): ?>
                     <p style="color:green">✔ Conexión a la base de datos correcta</p>
                 <?php else: ?>
