@@ -21,6 +21,9 @@ Route::get('/', function () {
 // ==========================
 // RUTAS DE AUTORES
 // ==========================
+
+Route::get('/authors/create', [AuthorController::class, 'create']);
+Route::get('/authors/{author}/edit', [AuthorController::class, 'edit']);
 Route::get('/authors', [AuthorController::class, 'index']);
 Route::get('/authors/{author}', [AuthorController::class, 'show']);
 Route::post('/authors', [AuthorController::class, 'store']);
@@ -31,6 +34,8 @@ Route::delete('/authors/{author}', [AuthorController::class, 'destroy']);
 // ==========================
 // RUTAS DE LIBROS
 // ==========================
+Route::get('/books/create', [BookController::class, 'create']);
+Route::get('/books/{book}/edit', [BookController::class, 'edit']);
 Route::get('/books', [BookController::class, 'index']);
 Route::get('/books/{book}', [BookController::class, 'show']);
 Route::post('/books', [BookController::class, 'store']);

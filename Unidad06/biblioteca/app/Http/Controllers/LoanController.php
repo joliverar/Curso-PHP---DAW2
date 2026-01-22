@@ -11,7 +11,8 @@ class LoanController extends Controller
     // Listar préstamos
     public function index()
     {
-        return Loan::with(['user', 'book'])->get();
+        $loans = Loan::with(['user', 'book'])->get();
+        return view('loans.index', compact('loans'));
     }
 
     // Crear préstamo

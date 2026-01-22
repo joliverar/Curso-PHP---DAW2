@@ -4,38 +4,62 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use App\Models\Author;
+use App\Models\Category;
 
 class BookController extends Controller
 {
     // Listar libros
     public function index()
     {
-        return Book::with(['author', 'categories'])->get();
+        $books = Book::with(['author', 'categories'])->get();
+
+        return view('books.index', compact('books'));
     }
+
+
+    public function create()
+    {
+        $authors = Author::all();
+        $categories = Category::all();
+
+        return view('books.create', compact('authors', 'categories'));
+    }
+
+
 
     // Mostrar un libro
     public function show(Book $book)
     {
-        return $book->load(['author', 'categories', 'loans']);
+        $book->load(['author', 'categories', 'loans']);
+        return view('books.show', compact('book'));
+    }
+    public function edit(Book $book)
+    {
+        $authors = Author::all();
+        $categories = Category::all();
+
+        return view('books.edit', compact('book', 'authors', 'categories'));
     }
 
     // Crear libro y asignar categorías
-    public function store(Request $request)
-    {
-        $book = Book::create($request->only([
-            'title',
-            'isbn',
-            'published_year',
-            'author_id'
-        ]));
+ public function store(Request $request)
+{
+    $book = Book::create($request->only([
+        'title',
+        'isbn',
+        'published_year',
+        'author_id'
+    ]));
 
-        // Sincronizar categorías
-        if ($request->has('categories')) {
-            $book->categories()->sync($request->categories);
-        }
-
-        return $book->load(['author', 'categories']);
+    if ($request->has('categories')) {
+        $book->categories()->sync($request->categories);
     }
+
+    return redirect('/books')
+        ->with('success', 'Libro creado correctamente');
+}
+
 
     // Actualizar libro
     public function update(Request $request, Book $book)
@@ -51,19 +75,24 @@ class BookController extends Controller
             $book->categories()->sync($request->categories);
         }
 
-        return $book->load(['author', 'categories']);
+         return redirect('/books')
+        ->with('success', 'Libro actualizado correctamente');
     }
+
+
 
     // Eliminar libro
-    public function destroy(Book $book)
-    {
-        if (!$book->isAvailable()) {
-            return response()->json([
-                'error' => 'El libro tiene préstamos activos'
-            ], 409);
-        }
-
-        $book->delete();
-        return response()->noContent();
+public function destroy(Book $book)
+{
+    if (!$book->isAvailable()) {
+        return redirect('/books')
+            ->with('error', 'No se puede eliminar un libro con préstamos activos');
     }
+
+    $book->delete();
+
+    return redirect('/books')
+        ->with('success', 'Libro eliminado correctamente');
+}
+
 }
