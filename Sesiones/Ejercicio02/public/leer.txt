@@ -1,0 +1,2 @@
+En este ejercicio no se ha utilizado bootstrap,
+ver como hay que cargar .env en cada fichero php
