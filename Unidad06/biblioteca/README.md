@@ -57,3 +57,42 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+# Crea la ruta de api
+
+ php artisan install:api 
+
+# Crea las rutas
+
+Route::apiResource('books', BookController::class);
+
+# Revisa lista de rutas
+
+ php artisan migrate:list
+
+# Crea el controller para libros en una carpeta Api
+
+ php artisan make:controller Api/BookController --api
+
+# Arranca el servidor
+
+php artisan serve     
+
+# Prueba ruta en postamn
+
+get http://127.0.0.1:8000/api/books
+post http://127.0.0.1:8000/api/books/3
+
+post, put y patch
+
+{
+  "title": "PHP2",
+  "isbn": "223322332324ffFF",
+  "published_year": 2026,
+  "author_id": 1
+}
+
+
+Delete y show
+http://127.0.0.1:8000/api/books/3
