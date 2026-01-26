@@ -70,7 +70,7 @@ Route::apiResource('books', BookController::class);
 # Revisa lista de rutas
 
  php artisan migrate:list
-
+php artisan route:list
 # Crea el controller para libros en una carpeta Api
 
  php artisan make:controller Api/BookController --api
@@ -96,3 +96,7 @@ post, put y patch
 
 Delete y show
 http://127.0.0.1:8000/api/books/3
+
+get buscar y filtrar
+http://127.0.0.1:8000/api/proyectos/buscar?nombre=API
+http://127.0.0.1:8000/api/proyectos/filtrar?color_fondo=#3498db
