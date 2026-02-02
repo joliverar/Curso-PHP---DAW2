@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        .fila {
+            margin: 10px 0;
+            background-color: #e1e1e1;
+            height: 90px;
+        }
+
+
+        .caja {
+            border: #2e6cf1 solid 1px;
+            color: white;
+            background-color: #0258bb;
+            
+        }
+        .titulo{
+            text-align: center;
+        }
+
+         .fila2 {
+            margin: 30px 0;
+            background-color: #e1e1e1;
+        
+        }
+
+ 
+    </style>
+</head>
+
+<body>
+ <h2 class="titulo">Actividad 1</h2>
+
+    <div class="container text-center">
+        <div class="fila row ">
+            <div class="caja col">Columna #1</div>
+            <div class="caja col">Columna #2</div>
+            <div class="caja col">Columna #3</div>
+        </div>
+        <div class="fila row align-items-start">
+            <div class="caja col">Columna #1</div>
+            <div class="caja col">Columna #2</div>
+            <div class="caja col">Columna #3</div>
+        </div>
+        <div class="fila row align-items-center">
+            <div class="caja col">Columna #1</div>
+            <div class="caja col">Columna #2</div>
+            <div class="caja col">Columna #3</div>
+        </div>
+        <div class="fila row align-items-end">
+            <div class="caja col">Columna #1</div>
+            <div class="caja col">Columna #2</div>
+            <div class="caja col">Columna #3</div>
+        </div>
+        <div class="fila row">
+            <div class="caja col align-self-start">Columna #1</div>
+            <div class="caja col align-self-center">Columna #2</div>
+            <div class="caja col align-self-end">Columna #3</div>
+        </div>
+    </div>
+    <h2 class="titulo">Actividad 2</h2>
+    <div class="container text-center">
+        <div class="fila2 row justify-content-start">
+            <div class="caja col-4">Columna #1</div>
+            <div class="caja col-4">Columna #2</div>
+     
+        </div>
+        <div class="fila2 row justify-content-center">
+            <div class="caja col-4">Columna #1</div>
+            <div class="caja col-4">Columna #2</div>
+           
+        </div>
+        <div class="fila2 row justify-content-end">
+            <div class="caja col-4">Columna #1</div>
+            <div class="caja col-4">Columna #2</div>
+        
+        </div>
+        <div class="fila2 row justify-content-around">
+            <div class="caja col-4">Columna #1</div>
+            <div class="caja col-4">Columna #2</div>
+     
+        </div>
+        <div class="fila2 row justify-content-between">
+            <div class="caja col-4">Columna #1</div>
+            <div class="caja col-4">Columna #2</div>
+
+        </div>
+    </div>
+        <h2 class="titulo">Actividad 3</h2>
+    <div class="container mt-4">
+
+    <!--  FILA 1 -->
+    <!-- Desplazar una posición a la izquierda -->
+    <!-- Comparación: tamaño 1, auto y sin tamaño -->
+    <div class="fila2 row mb-3">
+        <div class="col-1 offset-1 caja">Columna</div>
+        <div class="col-auto offset-1 caja">Columna</div>
+        <div class="col offset-1 caja">Columna</div>
+    </div>
+
+    <!-- FILA 2 -->
+    <!-- Centrado manual de una columna tamaño 4 -->
+    <!-- (12 - 4) / 2 = 4 -->
+    <div class="fila2 row mb-3">
+        <div class="col-4 offset-4 caja">
+            Columna
+        </div>
+    </div>
+
+    <!--  FILA 3 -->
+    <!-- Primera columna en posición 2 -->
+    <!-- Segunda columna en posición 8 -->
+    <div class="fila2 row mb-3">
+        <div class="col-3 offset-1 caja">
+            Columna
+        </div>
+        <div class="col-3 offset-2 caja">
+            Columna
+        </div>
+    </div>
+
+    <!--  FILA 4 -->
+    <!-- Responsive -->
+    <!-- xs: offset-1 -->
+    <!-- md: offset-4 -->
+    <!-- lg: sin offset -->
+    <div class="fila2 row mb-3">
+        <div class="col-4 offset-1 offset-md-4 offset-lg-0 caja">
+            Columna
+        </div>
+    </div>
+
+</div>
+
+
+
+</body>
+
+</html>
