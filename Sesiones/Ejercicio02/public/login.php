@@ -1,11 +1,11 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 session_start();
 
 require_once __DIR__ . '/../vendor/autoload.php';
-use Dotenv\Dotenv;
+
 use App\Clases\ConexionBD;
+use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->safeLoad();
@@ -14,30 +14,31 @@ $errores = [];
 $usuario = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $usuario = trim($_POST['usuario'] ?? '');
-    $password = $_POST['password'] ?? '';
+  $usuario = trim($_POST['usuario'] ?? '');
+  $password = $_POST['password'] ?? '';
 
-    if ($usuario === '' || $password === '') {
-        $errores[] = 'Usuario y contraseña son obligatorios.';
-    } else {
-        try {
-            $pdo = ConexionBD::getConexion();
-            $stmt = $pdo->prepare('SELECT password FROM usuarios WHERE usuario = :usuario LIMIT 1');
-            $stmt->execute([':usuario' => $usuario]);
-            $hash = $stmt->fetchColumn();
+  if ($usuario === '' || $password === '') {
+    $errores[] = 'Usuario y contraseña son obligatorios.';
+  } else {
+    try {
+      $pdo = ConexionBD::getConexion();
+      $stmt = $pdo->prepare('SELECT password FROM usuarios WHERE usuario = :usuario LIMIT 1');
+      $stmt->execute([':usuario' => $usuario]);
+      $hash = $stmt->fetchColumn();
 
-            if ($hash !== false && password_verify($password, (string)$hash)) {
-                // Credenciales válidas
-                $_SESSION['usuario'] = $usuario;
-                header('Location: reserva.php');
-                exit;
-            } else {
-                $errores[] = 'Usuario o contraseña incorrectos.';
-            }
-        } catch (\Throwable $e) {
-            $errores[] = 'Error de servidor.';
-        }
+      if ($hash !== false && password_verify($password, (string) $hash)) {
+        // Credenciales válidas
+
+        $_SESSION['usuario'] = $usuario;
+        header('Location: reserva.php');
+        exit;
+      } else {
+        $errores[] = 'Usuario o contraseña incorrectos.';
+      }
+    } catch (\Throwable $e) {
+      $errores[] = 'Error de servidor.';
     }
+  }
 }
 ?>
 <!doctype html>

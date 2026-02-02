@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+session_start();
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Clases\ConexionBD;
@@ -15,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ingresar'])) {
     $usuario = trim($_POST['usuario'] ?? '');
     $password = trim($_POST['password'] ?? '');
 
-    if ($usuario === '' && $password === '') {
+    if ($usuario === '' || $password === '') {
         $errores[] = 'El suario y contraseña son obligatorios';
     } else {
         try {
@@ -59,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ingresar'])) {
 
                 <form method="post" action="login.php" novalidate>
                                 <label>Usuario</label>
-                                <input name="usuario" type="text" required <?= htmlspecialchars($usuario) ?>>
+                                <input name="usuario" type="text" required value="<?= htmlspecialchars($usuario) ?>">
                                 <label>Contraseña</label>
                                 <input name="password" type="text" required>
                                 <button type="submit" name="ingresar">Ingresar</button>
