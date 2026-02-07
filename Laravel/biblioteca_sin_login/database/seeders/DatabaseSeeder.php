@@ -15,9 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        //bibliotecario
-        //llamar al seeder del usuario admin
+        // bibliotecario
+        // llamar al seeder del usuario admin
         $this->call([
+            AuthorsTableSeeder::class,
+            BooksTableSeeder::class,
             AdminUserSeeder::class,
         ]);
 
